@@ -1,0 +1,38 @@
+\documentclass{report}% use option titlepage to get the title on a page of its own.
+
+
+\begin{document}
+
+
+
+\chapter*{2\\IL LIVELLO APPLICATIVO} 
+
+\section*{Introduzione}
+
+In questo capitolo verranno analizzati alcuni protocolli facenti parte di entrambi i modelli standard di rete informatica: il modello OSI ed il modello TCP/IP. \\
+Benché lo standard internazionale per la comunicazione sia rappresentato dal modello OSI, nella pratica viene  comunque usato il più nuovo e “asciutto” modello TCP/IP, caratterizzato da un numero inferiore di livelli di rete e da una conseguente maggiore praticità. \\
+I livelli OSI riguardati da questa modifica sono i livelli che andremo ad analizzare in questo capitolo, definendoli e visionandone i principali servizi, a partire dal più esterno livello applicativo.\\
+Il livello applicativo (o applicazione) è il settimo ed ultimo livello nel modello OSI, ed il quarto ed ultimo livello nel TCP/IP. Il fatto che tale strato è chiamato in entrambi gli standard nello stesso modo, pur non avendo esattamente le stessa funzionalità sarà motivo di studio nelle sezioni successive.
+
+\section*{2.1 Funzionalità}
+
+Il livello applicazione è un livello astratto che ha la funzione di specificare all'interno di una rete le interfacce ed i protocolli di comunicazione utilizzati e più in generale di fornire servizi alle applicazione degli utenti della rete.\\\\
+Succede comunemente che due programmi debbano comunicare tra loro e per farlo è necessario innanzitutto che esista una connessione logica tra le due entità logiche (mittente e ricevente) per mezzo della quale si possa andare  a gestire i quattro livelli dello stack TCP/IP tramite un insieme di istruzioni (o funzioni) denominate API (Application Program Interface). Tramite esse è possibile aprire e chiudere connessioni ed inviare e ricevere dati.
+\\\\Nel TCP il livello applicativo contiene i protocolli e le interfacce di comunicazione usati nelle comunicazioni processo a processo svolte attraverso il protocollo internet (ip) all'interno di una rete.
+Il livello applicazione semplicemente standardizza la comunicazione e dipende dal livello di trasporto sottostante per stabilire i canali di trasferimento host to host e gestire lo scambio di dati in un modello di collegamento p2p o client server. 
+Dato che il livello applicativo nel tcp non descrive specifiche regole o formati di dati che le applicazioni devono invece considerare quando comunicano, nella specifica iniziale del tcp è fortemente raccomandato seguire il robustness principle (principio di robustezza). 
+	
+	Principio di robustezza: Anche noto come Legge di Postel in onore di colui che lo definì 		( Jon Postel ). 
+			Definizione: “be conservative in what you do, be liberal in what you accept 			from others”. In altre parole, quando un programmatore manda un messaggio 			ad un altro computer o ad un'altra applicazione all'interno dello stesso 				computer, questo deve essere perfettamente conforme alla specifica, mentre 			in caso di messaggi in entrata da altre fonti anche se non conformi devono 			essere accettati fintanto che il loro significato è chiaro.
+
+
+Nel modello OSI il livello applicativo è costituito da un insieme di API (Application Program Interface) di alto livello ed è utilizzato come un'interfaccia responsabile di mostrare tutte le informazioni che vengono ricevute all'utente. Si può notare che differenza del modello TCP, tale livello ha una più specifica funzionalità in quanto nell'OSI si ha una maggiore modularità delle funzioni. Parallelo al livello applicazione del TCP infatti, oltre al livello omonimo troviamo anche il livello sessione ed il livello presentazione. 
+
+
+
+
+
+
+
+
+\end{document}
