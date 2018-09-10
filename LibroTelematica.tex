@@ -1,5 +1,7 @@
 \documentclass{report}% use option titlepage to get the title on a page of its own.
 
+\usepackage{amsthm}
+\theoremstyle{plain}
 
 \begin{document}
 
@@ -10,29 +12,30 @@
 \section*{Introduzione}
 
 In questo capitolo verranno analizzati alcuni protocolli facenti parte di entrambi i modelli standard di rete informatica: il modello OSI ed il modello TCP/IP. \\
-Benché lo standard internazionale per la comunicazione sia rappresentato dal modello OSI, nella pratica viene  comunque usato il più nuovo e “asciutto” modello TCP/IP, caratterizzato da un numero inferiore di livelli di rete e da una conseguente maggiore praticità. \\
+Benché lo standard internazionale per la comunicazione sia rappresentato dal modello OSI, nella pratica comune il più utilizzato è il modello TCP/IP, caratterizzato da un numero inferiore di livelli di rete e da una conseguente maggiore praticità. \\
 I livelli OSI riguardati da questa modifica sono i livelli che andremo ad analizzare in questo capitolo, definendoli e visionandone i principali servizi, a partire dal più esterno livello applicativo.\\
-Il livello applicativo (o applicazione) è il settimo ed ultimo livello nel modello OSI, ed il quarto ed ultimo livello nel TCP/IP. Il fatto che tale strato è chiamato in entrambi gli standard nello stesso modo, pur non avendo esattamente le stessa funzionalità sarà motivo di studio nelle sezioni successive.
+Il livello applicativo (o applicazione) è il settimo ed ultimo livello nel modello OSI, ed il quarto ed ultimo livello nel TCP/IP. Il parallelismo di tale livello nei due standard sarà motivo di studio nelle sezioni successive.
 
 \section*{2.1 Funzionalità}
 
 Il livello applicazione è un livello astratto che ha la funzione di specificare all'interno di una rete le interfacce ed i protocolli di comunicazione utilizzati e più in generale di fornire servizi alle applicazione degli utenti della rete.\\\\
-Succede comunemente che due programmi debbano comunicare tra loro e per farlo è necessario innanzitutto che esista una connessione logica tra le due entità logiche (mittente e ricevente) per mezzo della quale si possa andare  a gestire i quattro livelli dello stack TCP/IP tramite un insieme di istruzioni (o funzioni) denominate API (Application Program Interface). Tramite esse è possibile aprire e chiudere connessioni ed inviare e ricevere dati.
-\\\\Nel TCP il livello applicativo contiene i protocolli e le interfacce di comunicazione usati nelle comunicazioni processo a processo svolte attraverso il protocollo internet (ip) all'interno di una rete.
-Il livello applicazione semplicemente standardizza la comunicazione e dipende dal livello di trasporto sottostante per stabilire i canali di trasferimento host to host e gestire lo scambio di dati in un modello di collegamento p2p o client server. 
-Dato che il livello applicativo nel tcp non descrive specifiche regole o formati di dati che le applicazioni devono invece considerare quando comunicano, nella specifica iniziale del tcp è fortemente raccomandato seguire il robustness principle (principio di robustezza). 
-	
-	Principio di robustezza: Anche noto come Legge di Postel in onore di colui che lo definì 		( Jon Postel ). 
-			Definizione: “be conservative in what you do, be liberal in what you accept 			from others”. In altre parole, quando un programmatore manda un messaggio 			ad un altro computer o ad un'altra applicazione all'interno dello stesso 				computer, questo deve essere perfettamente conforme alla specifica, mentre 			in caso di messaggi in entrata da altre fonti anche se non conformi devono 			essere accettati fintanto che il loro significato è chiaro.
+Quando due programmi devono comunicare tra loro è necessario prima di tutto che esista una connessione logica tra le due entità logiche (mittente e ricevente). Per mezzo di essa si può andare a gestire i quattro livelli dello stack TCP/IP tramite un insieme di istruzioni (o funzioni) denominate API (Application Program Interface) per mezzo delle quali è possibile aprire e chiudere connessioni ed inviare e ricevere dati. \\Durante una trasmissione, ogni strato dello stack aggiunge un header al pacchetto dati che identifica il messaggio da trasmettere. Questa operazione è chiamata incapsulamento. Per mezzo di essa è possibile identificare il dato effettivo e l'header aggiunto dallo strato attuale come un unico pacchetto dati che verrà successivamente passato allo strato sottostante. Il pacchetto dati risultante dal passaggio nello stack verrà poi trasmesso e ricevuto. Il computer o l'applicazione ricevente dovrà poi effettuare  l'operazione inversa, estraendo ad ogni livello l'header necessario a dirigere l'operazione di ricezione.
+\\\\Il primo e più esterno strato dello stack è il livello applicativo, il quale ha lo scopo di standardizzare la comunicazione. Nel TCP/IP infatti, il livello applicativo contiene i protocolli e le interfacce di comunicazione usati nelle trasmissioni processo a processo per completare le varie richieste dei programmi, svolte attraverso il protocollo internet (IP), all'interno di una rete. Tra i protocolli più comunemente usati troviamo HyperText Transfer Protocol (HTTP), File Transfer Protocol (FTP), Domain Name System (DNS) e Simple Mail Transfer Protocol (SMTP).\\
+Un esempio di concreto utilizzo dei protocolli si ha ogni volta che richiediamo al nostro browser di accedere ad internet o di caricare o scaricare qualcosa da esso. Il livello applicativo per completare la richiesta, chiamerà nel primo caso il protocollo HTTP mentre nel secondo il protocollo FTP.\\
+Per far arrivare all'utente i dati richiesti secondo lo standard TCP/IP, il livello applicazione deve passare i dati al livello trasporto attraverso degli indirizzi ( o interfacce ) logici chiamati porte. Sarà poi il livello di trasporto ad occuparsi della ricezione finale da parte dell'utente.\\
+L'utilizzo delle porte rende molto più semplice al livello di trasporto, capire che tipo di dato gli sta venendo passato. Se ad esempio venisse inviato un dato sulla porta 25, significherebbe che il dato riguarda una richiesta e-mai. Se invece fosse stato mandato sulla porta 21 o 22, sarebbe stato un dato FTP.\\\\ 
+Il livello applicazione nel TCP/IP non descrive nella comunicazione, specifiche regole o formati di dati che le applicazioni devono invece tenere di conto durante le trasmissioni. Per questo motivo nella specifica iniziale dello standard è fortemente raccomandato di seguire il robustness principle (principio di robustezza). \\
 
-
-Nel modello OSI il livello applicativo è costituito da un insieme di API (Application Program Interface) di alto livello ed è utilizzato come un'interfaccia responsabile di mostrare tutte le informazioni che vengono ricevute all'utente. Si può notare che differenza del modello TCP, tale livello ha una più specifica funzionalità in quanto nell'OSI si ha una maggiore modularità delle funzioni. Parallelo al livello applicazione del TCP infatti, oltre al livello omonimo troviamo anche il livello sessione ed il livello presentazione. 
-
-
-
-
-
-
-
+\newtheorem*{theorem*}{Principio di robustezza}
+\begin{theorem*}
+(o legge di Postel): “be conservative in what you do, be liberal in what you accept from others”.
+ \end{theorem*} 
+ In altre parole, quando viene inviato un messaggio 			ad un altro computer o applicazione, questo deve essere perfettamente conforme alla specifica. In caso invece di messaggi in entrata non conformi, questi devono essere accettati fintanto che il loro significato è chiaro.\\\\
+Nel modello OSI il livello applicativo è costituito, come nel TCP/IP, da un insieme di protocolli ed interfacce di comunicazione, e come  nel 	TCP/IP troviamo tra i protocolli più comunemente usati HTTP, FTP, DNS e SMTP. Una sostanziale differenza però la si trova, come anticipato, dalla struttura stessa del modello. Il livello applicativo del TCP/IP comprende sia il livello applicativo del modello OSI, sia i livelli presentazione e sessione. Questa maggiore modularità degli strati dello standard OSI è dovuta ad una più elevata distribuzione delle funzioni tra essi. Il livello applicazione del modello OSI infatti, si occupa solo di verificare la effettiva disponibilità di un partner per la comunicazione e delle risorse necessarie ad essa, lavorando direttamente col software applicativo. Una volta appurata la presenza di un partner e la disponibilità di risorse, il pacchetto dati composto dal dato da scambiare e dall'header aggiunto dal livello applicazione viene passato al sottostante livello presentazione.
+\section*{2.2 Livelli Presentazione e Sessione}
+Il livello presentazione è il sesto livello del modello ISO/OSI ed ha la funzione di assicurarsi che il dato ricevuto sia compatibile con le risorse disponibili alla comunicazione. Questo avviene tramite una traduzione del dato in una forma accettabile (quindi comprensibile) dal livello applicazione e dai livelli sottostanti.\\Il sesto strato offre inoltre importanti servizi quali la formattazione, la codifica, la criptazione e la compressione di dati. Se ad esempio si volesse convertire un file di testo scritto in Extended Binary Coded Decimal Interchange Code (EBCDIC) in un file scritto in  American Standard Code for Information Interchange (ASCII), tale conversione avverrebbe a questo livello. Un altro esempio si ha quando si invia un file di testo dal contenuto sensibile (come una password), ed è dunque necessario che il messaggio venga criptato. Tale operazione avviene proprio al livello presentazione. Una volta finita l'elaborazione del pacchetto dati, questo viene passato allo strato inferiore, il livello sessione.\\\\
+Il livello sessione è il quinto livello del modello OSI e fornisce i meccanismi per stabilire, gestire ed infine concludere la connessione tra una applicazione locale ed una remota, verificando inoltre che il dato sia stato effettivamente notificato. È solo a questo punto dello stack infatti, dopo che il livello applicativo e presentazione hanno adattato il pacchetto dati alla comunicazione, che avviene l'effettiva connessione. A questo livello vengono inoltre gestite le funzioni di autenticazione o autorizzazione e viene fornito il servizio di session restoration (checkpointing and recovery). Quest'ultimo servizio proverà, in caso di perdita di connessione, a ripristinarla riavviando se necessario la comunicazione.
+Il livello sessione viene comunemente usato in modo esplicito negli ambienti applicativi che fanno uso delle chiamate a procedura remote (RPCs). 
+\section*{2.3 Evoluzioni delle applicazioni Internet e Web}
 
 \end{document}
