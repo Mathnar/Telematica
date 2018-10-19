@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.7)  3 OCT 2018 17:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.7)  3 OCT 2018 23:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -726,15 +726,15 @@ Overfull \hbox (17.14359pt too wide) in paragraph at lines 163--227
 <Immagini/webcontest.png, id=29, 2845.63126pt x 1991.44pt>
 File: Immagini/webcontest.png Graphic file (type png)
 <use Immagini/webcontest.png>
-Package pdftex.def Info: Immagini/webcontest.png  used on input line 233.
+Package pdftex.def Info: Immagini/webcontest.png  used on input line 234.
 (pdftex.def)             Requested size: 398.33858pt x 278.76932pt.
 
-Overfull \hbox (38.33858pt too wide) in paragraph at lines 233--234
+Overfull \hbox (38.33858pt too wide) in paragraph at lines 234--235
  [] 
  []
 
 
-Overfull \hbox (17.14359pt too wide) in paragraph at lines 240--241
+Overfull \hbox (17.14359pt too wide) in paragraph at lines 241--242
  [][] 
  []
 
@@ -773,7 +773,7 @@ e/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/
 /texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2018/t
 exmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2018/tex
 mf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on LibroTelematica.pdf (9 pages, 423217 bytes).
+Output written on LibroTelematica.pdf (9 pages, 423211 bytes).
 PDF statistics:
  61 PDF objects out of 1000 (max. 8388607)
  42 compressed objects within 1 object stream
