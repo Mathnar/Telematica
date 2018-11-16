@@ -19,61 +19,61 @@
 \contentsline {subsection}{\numberline {1.8.1}Elementi di rete}{7}
 \contentsline {chapter}{\numberline {2}Livello Applicativo}{9}
 \contentsline {section}{\numberline {2.1}Funzionalit\`a}{10}
-\contentsline {section}{\numberline {2.2}Livelli Sessione e Presentazione}{11}
-\contentsline {section}{\numberline {2.3}Evoluzione delle applicazioni Internet e Web}{13}
-\contentsline {section}{\numberline {2.4}Servizio DNS}{17}
-\contentsline {section}{\numberline {2.5}Servizio Telnet}{17}
-\contentsline {section}{\numberline {2.6}Servizio SMTP e POP/IMPAP}{17}
-\contentsline {section}{\numberline {2.7}Servizio HTTP}{17}
-\contentsline {subsection}{\numberline {2.7.1}Standard HTTP/1.0}{17}
-\contentsline {subsection}{\numberline {2.7.2}Standard HTTP/1.1}{17}
-\contentsline {subsection}{\numberline {2.7.3}Cache e Web Proxy}{17}
-\contentsline {subsection}{\numberline {2.7.4}Standard HTTP/2.0}{17}
-\contentsline {section}{\numberline {2.8}Paradigma Client-Server}{17}
-\contentsline {subsection}{\numberline {2.8.1}Cloud, Fog e Edge Computing}{17}
-\contentsline {subsection}{\numberline {2.8.2}Content Delivery Networks}{17}
-\contentsline {section}{\numberline {2.9}Paradigma Peer-to-Peer}{17}
-\contentsline {subsection}{\numberline {2.9.1}Protocollo BitTorrent}{17}
-\contentsline {section}{\numberline {2.10}Social Networks}{17}
-\contentsline {section}{\numberline {2.11}Blockchain}{17}
-\contentsline {chapter}{\numberline {3}Tecnologie Web}{19}
-\contentsline {section}{\numberline {3.1}Linguaggio HTML}{19}
-\contentsline {subsection}{\numberline {3.1.1}Evoluzione storica}{19}
-\contentsline {subsection}{\numberline {3.1.2}Principali tag}{19}
-\contentsline {subsection}{\numberline {3.1.3}CSS}{19}
-\contentsline {subsection}{\numberline {3.1.4}Form}{19}
-\contentsline {subsection}{\numberline {3.1.5}XHTML}{19}
-\contentsline {subsection}{\numberline {3.1.6}HTML5}{19}
-\contentsline {section}{\numberline {3.2}Linguaggio Javascript}{19}
-\contentsline {section}{\numberline {3.3}Linguaggio PHP}{19}
-\contentsline {section}{\numberline {3.4}Motori di ricerca Web}{19}
-\contentsline {section}{\numberline {3.5}Web2.0}{19}
-\contentsline {subsection}{\numberline {3.5.1}Paradigmi REST e SOAP}{19}
-\contentsline {chapter}{\numberline {4}Livello Trasporto}{21}
-\contentsline {section}{\numberline {4.1}Funzionalit\`a}{22}
-\contentsline {section}{\numberline {4.2}Socket API}{22}
-\contentsline {section}{\numberline {4.3}Protocollo UDP}{22}
-\contentsline {section}{\numberline {4.4}Protocollo TCP}{22}
-\contentsline {subsection}{\numberline {4.4.1}Apertura di una sessione}{22}
-\contentsline {subsection}{\numberline {4.4.2}Chiusura di una sessione}{22}
-\contentsline {subsection}{\numberline {4.4.3}Protocollo Sliding Window}{22}
-\contentsline {subsection}{\numberline {4.4.4}Protocolli di ritrasmissione}{22}
-\contentsline {subsection}{\numberline {4.4.5}Formato del segmento}{22}
-\contentsline {subsection}{\numberline {4.4.6}Adattamento del timeout}{22}
-\contentsline {section}{\numberline {4.5}Controllo di congestione}{22}
-\contentsline {subsection}{\numberline {4.5.1}Motivazione}{22}
-\contentsline {subsection}{\numberline {4.5.2}Approccio AIMD}{22}
-\contentsline {section}{\numberline {4.6}TCP Tahoe}{22}
-\contentsline {subsection}{\numberline {4.6.1}ACK clocking}{22}
-\contentsline {subsection}{\numberline {4.6.2}Slow-start}{22}
-\contentsline {subsection}{\numberline {4.6.3}Congestion Control}{22}
-\contentsline {section}{\numberline {4.7}TCP Reno}{22}
-\contentsline {subsection}{\numberline {4.7.1}Fast Retransmission/Fast Recovery}{22}
-\contentsline {section}{\numberline {4.8}TCPNewReno e SACK}{22}
-\contentsline {section}{\numberline {4.9}TCP ECN}{22}
-\contentsline {section}{\numberline {4.10}TCP Vegas}{22}
-\contentsline {section}{\numberline {4.11}TCP Westwood}{22}
-\contentsline {section}{\numberline {4.12}Protocollo RTP}{22}
-\contentsline {section}{\numberline {4.13}Protocollo RTCP}{22}
-\contentsline {section}{\numberline {4.14}Protocollo SIP}{22}
-\contentsline {section}{\numberline {4.15}Mobile IP}{22}
+\contentsline {section}{\numberline {2.2}Livelli Sessione e Presentazione}{12}
+\contentsline {section}{\numberline {2.3}Evoluzione delle applicazioni Internet e Web}{14}
+\contentsline {section}{\numberline {2.4}Servizio DNS}{19}
+\contentsline {section}{\numberline {2.5}Servizio Telnet}{19}
+\contentsline {section}{\numberline {2.6}Servizio SMTP e POP/IMPAP}{19}
+\contentsline {section}{\numberline {2.7}Servizio HTTP}{19}
+\contentsline {subsection}{\numberline {2.7.1}Standard HTTP/1.0}{19}
+\contentsline {subsection}{\numberline {2.7.2}Standard HTTP/1.1}{19}
+\contentsline {subsection}{\numberline {2.7.3}Cache e Web Proxy}{19}
+\contentsline {subsection}{\numberline {2.7.4}Standard HTTP/2.0}{19}
+\contentsline {section}{\numberline {2.8}Paradigma Client-Server}{19}
+\contentsline {subsection}{\numberline {2.8.1}Cloud, Fog e Edge Computing}{19}
+\contentsline {subsection}{\numberline {2.8.2}Content Delivery Networks}{19}
+\contentsline {section}{\numberline {2.9}Paradigma Peer-to-Peer}{19}
+\contentsline {subsection}{\numberline {2.9.1}Protocollo BitTorrent}{19}
+\contentsline {section}{\numberline {2.10}Social Networks}{19}
+\contentsline {section}{\numberline {2.11}Blockchain}{19}
+\contentsline {chapter}{\numberline {3}Tecnologie Web}{21}
+\contentsline {section}{\numberline {3.1}Linguaggio HTML}{21}
+\contentsline {subsection}{\numberline {3.1.1}Evoluzione storica}{21}
+\contentsline {subsection}{\numberline {3.1.2}Principali tag}{21}
+\contentsline {subsection}{\numberline {3.1.3}CSS}{21}
+\contentsline {subsection}{\numberline {3.1.4}Form}{21}
+\contentsline {subsection}{\numberline {3.1.5}XHTML}{21}
+\contentsline {subsection}{\numberline {3.1.6}HTML5}{21}
+\contentsline {section}{\numberline {3.2}Linguaggio Javascript}{21}
+\contentsline {section}{\numberline {3.3}Linguaggio PHP}{21}
+\contentsline {section}{\numberline {3.4}Motori di ricerca Web}{21}
+\contentsline {section}{\numberline {3.5}Web2.0}{21}
+\contentsline {subsection}{\numberline {3.5.1}Paradigmi REST e SOAP}{21}
+\contentsline {chapter}{\numberline {4}Livello Trasporto}{23}
+\contentsline {section}{\numberline {4.1}Funzionalit\`a}{24}
+\contentsline {section}{\numberline {4.2}Socket API}{24}
+\contentsline {section}{\numberline {4.3}Protocollo UDP}{24}
+\contentsline {section}{\numberline {4.4}Protocollo TCP}{24}
+\contentsline {subsection}{\numberline {4.4.1}Apertura di una sessione}{24}
+\contentsline {subsection}{\numberline {4.4.2}Chiusura di una sessione}{24}
+\contentsline {subsection}{\numberline {4.4.3}Protocollo Sliding Window}{24}
+\contentsline {subsection}{\numberline {4.4.4}Protocolli di ritrasmissione}{24}
+\contentsline {subsection}{\numberline {4.4.5}Formato del segmento}{24}
+\contentsline {subsection}{\numberline {4.4.6}Adattamento del timeout}{24}
+\contentsline {section}{\numberline {4.5}Controllo di congestione}{24}
+\contentsline {subsection}{\numberline {4.5.1}Motivazione}{24}
+\contentsline {subsection}{\numberline {4.5.2}Approccio AIMD}{24}
+\contentsline {section}{\numberline {4.6}TCP Tahoe}{24}
+\contentsline {subsection}{\numberline {4.6.1}ACK clocking}{24}
+\contentsline {subsection}{\numberline {4.6.2}Slow-start}{24}
+\contentsline {subsection}{\numberline {4.6.3}Congestion Control}{24}
+\contentsline {section}{\numberline {4.7}TCP Reno}{24}
+\contentsline {subsection}{\numberline {4.7.1}Fast Retransmission/Fast Recovery}{24}
+\contentsline {section}{\numberline {4.8}TCPNewReno e SACK}{24}
+\contentsline {section}{\numberline {4.9}TCP ECN}{24}
+\contentsline {section}{\numberline {4.10}TCP Vegas}{24}
+\contentsline {section}{\numberline {4.11}TCP Westwood}{24}
+\contentsline {section}{\numberline {4.12}Protocollo RTP}{24}
+\contentsline {section}{\numberline {4.13}Protocollo RTCP}{24}
+\contentsline {section}{\numberline {4.14}Protocollo SIP}{24}
+\contentsline {section}{\numberline {4.15}Mobile IP}{24}

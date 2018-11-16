@@ -19,6 +19,7 @@
 \usepackage{graphicx,changepage}
 \usepackage{grffile}
 
+\usetikzlibrary{arrows,shadows,positioning}
 
 
 \newlength\Textwd
@@ -101,8 +102,9 @@
 
 \chapter{Livello Applicativo}\label{sec.Applicazione}
 \section*{Introduzione}
-In questo capitolo verranno analizzati alcuni protocolli facenti parte di entrambi i modelli standard di rete informatica: il modello \textit{OSI} ed il modello\textit{ TCP/IP}. \\
-Benché lo standard internazionale per la comunicazione sia rappresentato dal modello OSI, questo è utilizzato più come un modello astratto di riferimento. Nella pratica comune lo standard è il modello TCP/IP, caratterizzato da un numero inferiore di livelli di rete e da una conseguente elevata praticità. 
+In questo capitolo verranno analizzati alcuni livelli facenti parte di entrambi i modelli standard di una rete informatica: il modello \textit{ISO/OSI} ed il modello\textit{ TCP/IP}. \\
+Benché lo standard internazionale per la comunicazione sia rappresentato dal modello ISO/OSI, esso è utilizzato più come un modello astratto di riferimento. Nella pratica comune lo standard di riferimento è il modello TCP/IP, caratterizzato da un numero inferiore di livelli e da una elevata praticità dovuta ad una maggiore facilità nella manutenzione, nell'aggiornamento e più in generale nella gestione dei livelli.
+\begin{figure}[h]
 \begin{center}
 \begin{tikzpicture}[auto,
 rect/.style={
@@ -139,40 +141,30 @@ rect/.style={
 \nodepart{four}\Textbox{2.08cm}{Accesso alla rete (Fisico)}
 };
 \end{tikzpicture}
+\caption{Richiamo alla struttura dei modelli ISO/OSI (sinistra) e TCP/IP (destra).}
 \end{center}
-\begin{center}
- Figura 2.1. \textit{Richiamo alla struttura dei modelli ISO/OSI (sinistra) e TCP/IP (destra).}
-\end{center}
-\begin{tikzpicture}
-
-\end{tikzpicture}
-
-
-
-I livelli OSI riguardati da questa modifica sono i livelli che andremo ad analizzare in questo capitolo, definendoli ed approfondendone i principali servizi. Il \textit{livello applicativo} (o applicazione) è il settimo e più esterno livello nel modello OSI ed il quarto e ultimo livello nel TCP/IP. Il parallelismo di tale strato nei due standard sarà motivo di studio nelle sezioni successive.\\
-Prima di andare ad approfondire i servizi offerti dai vari livelli dei due standard, si tratterà di come si sono sviluppate le \textit{applicazioni web}, a partire dalla nascita di internet fino ad arrivare ad oggi, in modo da avere un quadro generale dello sviluppo delle tecnologie che hanno permesso e permettono tutt'ora, l'evoluzione della rete.
+\end{figure}
+I livelli ISO/OSI coinvolti nel processo di riduzione sono quelli che andremo ad analizzare in questo capitolo, definendoli ed approfondendone i principali servizi offerti.\\ Il \textit{livello Applicativo} (o Applicazione) è il settimo e più esterno livello nel modello ISO/OSI ed il quarto (o quinto) livello nel TCP/IP. Le diverse accezioni che assume tale strato nei due standard sarà motivo di studio nelle sezioni successive.\\
+Prima di andare ad approfondire i servizi offerti dai livelli dei due standard, si tratterà di come si sono sviluppate le \textit{applicazioni Web}, a partire dalla nascita di Internet fino ad arrivare ad oggi, in modo da avere un quadro generale dello sviluppo delle tecnologie che hanno permesso e permettono tutt'ora, l'evoluzione della Rete.
 \section{Funzionalità}
-Il livello applicazione è un livello astratto che ha la funzione di specificare all'interno di una rete le interfacce ed i protocolli di comunicazione utilizzati e più in generale di fornire servizi alle applicazione degli utenti della rete, al fine di garantire una corretta trasmissione.\\\\
-Quando due programmi devono comunicare tra loro è necessario prima di tutto che esista una connessione logica tra le due entità logiche (mittente e ricevente). Tramite essa si può andare a gestire i quattro livelli dello \textit{stack TCP/IP} per mezzo di un insieme di istruzioni (o funzioni) denominate \textit{API} (\textit{Application Program Interface}) che ci permettono di aprire e chiudere connessioni ed inviare e ricevere dati. \\Durante una trasmissione ogni strato dello stack aggiunge un header al pacchetto dati che identifica il messaggio da trasmettere. Questa operazione è chiamata \textbf{incapsulamento}. Per mezzo di essa è possibile identificare il dato effettivo e l'header aggiunto dallo strato attuale come un unico pacchetto dati che verrà successivamente passato allo strato sottostante. Il pacchetto risultante dal passaggio dell'intero stack verrà poi trasmesso e ricevuto. Il computer o l'applicazione ricevente dovrà poi effettuare l'operazione inversa, estraendo ad ogni livello l'header necessario a dirigere l'operazione di ricezione.
-\\\\Il primo e più esterno strato dello stack, come anticipato, è il livello applicativo, il quale ha lo scopo di \textit{standardizzare la comunicazione}. Nel TCP/IP infatti, il livello applicativo contiene i protocolli e le interfacce di comunicazione usati nelle trasmissioni processo a processo per completare le varie richieste dei programmi, svolte attraverso il protocollo internet (IP), all'interno di una rete. Tra i protocolli più comunemente usati troviamo HyperText Transfer Protocol (HTTP), File Transfer Protocol (FTP), Domain Name System (DNS) e Simple Mail Transfer Protocol (SMTP).\\
-Un esempio di concreto utilizzo dei protocolli si ha ogni volta che richiediamo al nostro browser di accedere ad internet o di caricare o scaricare qualcosa da esso. Il livello applicativo per completare la richiesta, chiamerà nel primo caso il protocollo HTTP mentre nel secondo il protocollo FTP.\\
-Per far arrivare all'utente i dati richiesti secondo lo standard TCP/IP, il livello applicazione deve passare i dati al livello trasporto attraverso degli indirizzi ( o interfacce ) logici chiamati \textit{porte}. Sarà poi il\textit{ livello trasporto} ad occuparsi della ricezione finale da parte dell'utente.\\
-L'utilizzo delle porte rende molto più semplice al livello trasporto, capire che tipo di dato gli sta venendo passato. Se ad esempio venisse inviato un dato sulla porta 25, significherebbe che il dato riguarda una richiesta e-mai. Se invece fosse stato mandato sulla porta 21 o 22, sarebbe stato un dato FTP.\\\\ 
-Il livello applicazione nel TCP/IP non specifica nessun tipo di regola o formato di dati accettabili, che le applicazioni devono invece tenere di conto durante le trasmissioni. Per questo motivo nella specifica iniziale dello standard è fortemente raccomandato di seguire il \textbf{robustness principle} (principio di robustezza). 
-\newtheorem*{theorem*}{Principio di robustezza}
-\begin{theorem*}
-(o legge di Postel): ?be conservative in what you do, be liberal in what you accept from others?.
- \end{theorem*} 
- In altre parole, quando viene inviato un messaggio 			ad un altro computer o ad un'altra applicazione, questo deve essere perfettamente conforme alla specifica richiesta. In caso invece di messaggi in entrata non conformi, questi devono essere accettati fintanto che il loro significato è chiaro.\\\\
-Nel modello OSI il livello applicativo è costituito, come nel TCP/IP, da un insieme di protocolli ed interfacce di comunicazione tra i quali HTTP, FTP, DNS e SMTP. Una sostanziale differenza però la si trova nella struttura stessa del modello. Il livello applicativo del TCP/IP comprende sia il livello applicativo che i livelli presentazione e sessione del modello OSI. Questa maggiore modularità degli strati dello standard OSI è dovuta ad una più elevata distribuzione delle funzioni tra essi. Il livello applicazione del modello OSI, lavora infatti direttamente col software applicativo e si occupa "solo" di verificare la effettiva disponibilità di un partner per la comunicazione e delle risorse necessarie alla trasmissione. Una volta appurata la presenza di un partner e la disponibilità di risorse, il pacchetto dati composto dal dato da scambiare e dall'header aggiunto dal livello applicazione viene passato al sottostante livello presentazione.
+Il livello Applicazione è un livello astratto che ha la funzione di specificare all'interno di una rete le interfacce ed i protocolli di comunicazione utilizzati e più in generale di fornire servizi ai processi distribuiti in rete al fine di garantire una corretta trasmissione.\\\\
+Quando due programmi devono comunicare tra loro è necessario prima di tutto che venga stabilito un modello di rete, e che esista una connessione logica tra le due entità logiche (mittente e destinatario). Tramite essa si possono gestire congiuntamente i livelli dello \textit{stack TCP/IP} per mezzo di un insieme di istruzioni (o funzioni) denominate \textit{API} (\textit{Application Program Interface}) che ci permettono di aprire e chiudere connessioni ed inviare e ricevere dati. \\Durante una comunicazione ogni strato dello stack aggiunge un header al pacchetto dati che identifica il messaggio da trasmettere. Questa operazione è chiamata \textbf{incapsulamento}. Per mezzo di essa è possibile identificare il dato effettivo e l'header aggiunto dallo strato attuale come un unico pacchetto dati che verrà successivamente passato allo strato sottostante. Il pacchetto risultante dal passaggio dell'intero stack verrà poi trasmesso e ricevuto. Il computer o l'applicazione ricevente dovrà poi effettuare l'operazione inversa, estraendo ad ogni livello l'header necessario a dirigere l'operazione di ricezione.
+\\\\Il primo e più esterno strato dello stack, come anticipato, è il livello Applicativo, il quale ha lo scopo di \textit{standardizzare la comunicazione}. Nel TCP/IP infatti, il livello applicativo contiene i protocolli e le interfacce di comunicazione usati nelle trasmissioni processo - processo per completare le istruzioni dei programmi, svolte attraverso il protocollo Internet (IP), all'interno di una rete. Tra i protocolli più comunemente usati troviamo HTTP (HyperText Transfer Protocol), FTP (File Transfer Protocol), DNS (Domain Name System) e SMTP (Simple Mail Transfer Protocol). Un esempio di concreto utilizzo dei protocolli si ha ogni volta che viene richiesto al nostro browser di accedere ad una risorsa web tramite il processo browser. Il livello applicativo per completare la richiesta, chiamerà in causa il protocollo HTTP.\\
+Per far arrivare al Client i dati richiesti secondo lo standard TCP/IP, il livello Applicazione deve passare i dati al livello Trasporto attraverso interfacce logiche chiamate \textit{porte}.
+L'utilizzo delle porte rende molto più semplice al livello Trasporto, capire che tipo di dato gli sta venendo passato. Se ad esempio venisse inviato un dato sulla porta 25, significherebbe che il dato riguarda una richiesta e-mail. Se invece fosse stato mandato sulla porta 21 o 22, sarebbe stato un servizio FTP. Poiché sui sistemi interlocutori ci possono essere numerosi processi attivi, l'indirizzamento dell'interlocutore verso la porta giusta è un'operazione critica.  Tale funzione è svolta dai \textbf{socket}. Un socket è un \textit{oggetto software} la cui funzione è quella di garantire l'invio e la ricezione dei dati tra host remoti (se in una rete) o locali (\textit{Inter-Process-Communication}). Nello specifico, nello standard TCP/IP, fungono da intermediari tra il livello Applicazione ed il livello Trasporto, fornendo degli \textit{indirizzi di socket} agli interlocutori di ogni singola comunicazione, contenenti l'indirizzo e la porta della controparte. \\Si possono distinguere tre diversi tipi di socket in base al tipo di connessione. Gli \textbf{Stream Socket} sono basati su protocolli come il TCP e garantiscono una comunicazione affidabile di tipo full-duplex, orientata alla connessione (\textit{connection oriented}) e caratterizzata da un flusso di byte di lunghezza variabile. I \textbf{Datagram Socket} sono basati su \textit{UDP} (User Datagram Protocol), un protocollo alternativo al TCP che garantisce comunicazioni a bassa latenza (comunemente utilizzate per videochat) e prive di controllo del flusso. I \textbf{Raw Socket} (raw IP) hanno la caratteristica di "saltare" il livello di Trasporto, e rendere l'header accessibile direttamente al livello Applicativo. Tali indirizzi di socket sono infatti privi di una porta associata, ma contengono solo l'indirizzo dell'interlocutore.\\\\ 
+Il livello Applicazione nel TCP/IP non specifica nessun tipo di regola o formato di dati accettabili, che le applicazioni devono invece tenere di conto. Per questo motivo nella prima stesura dello standard TCP/IP 	venne fortemente raccomandato di seguire il \textbf{principio di robustezza} (o legge di Postel), che recita:\\\\
+\textit{"Be conservative in what you do, be liberal in what you accept from others."}\\\\
+In altre parole, quando viene inviato un messaggio ad un qualsiasi destinatario risiedente in un Host differente da quello del mittente, questo deve essere perfettamente conforme alla specifica richiesta. In caso invece di messaggi in entrata non conformi, questi dovranno essere accettati qualora il loro significato fosse chiaro.\\\\
+Nel modello ISO/OSI il livello Applicativo è costituito, come nel TCP/IP, da un insieme di protocolli ed interfacce di comunicazione tra i quali HTTP, FTP, DNS e SMTP. Una sostanziale differenza però la si trova nella struttura stessa del modello. Il livello Applicativo del TCP/IP comprende sia il livello Applicativo che i livelli Presentazione e Sessione del modello ISO/OSI. Questa maggiore modularità degli strati dello standard OSI è dovuta ad una più precisa suddivisione delle funzioni tra essi. Il livello Applicazione del modello ISO/OSI, lavora infatti direttamente col software applicativo e si occupa "solo" di verificare l'esistenza di un Host per la comunicazione del flusso dati. Una volta appurata la presenza e la disponibilità di risorse, composte dal dato vero e proprio e dall'header aggiunto dal livello Applicazione, il pacchetto dati è passato al sottostante livello Presentazione.
 
 \section{Livelli Sessione e Presentazione}
-\textbf{Il livello presentazione} è il sesto livello del modello ISO/OSI ed è il primo livello ad occuparsi del significato delle informazioni trasmesse. Ha la funzione di assicurare la compatibilità dei dati durante una comunicazione tra entità che utilizzano codifiche diverse. Questo avviene tramite una traduzione del dato in una forma accettabile (quindi comprensibile) dal livello applicazione e dai livelli sottostanti del ricevente. Nello specifico: una volta iniziata la trasmissione, cambia il formato dei dati da quello del dispositivo mittente (\textit{sintassi locale}, a quello del dispositivo ricevente (\textit{sintassi di trasferimento}\\Questo strato offre inoltre importanti servizi quali la formattazione, la codifica, la criptazione e la compressione di dati. Se ad esempio si volesse convertire un file di testo scritto in EBCDIC (Extended Binary Coded Decimal Interchange Code) in un file scritto in  ASCII (American Standard Code for Information Interchange), tale conversione avverrebbe a questo livello. Un altro esempio si ha quando si invia un file di testo dal contenuto sensibile (come una password), ed è dunque necessario che il messaggio venga criptato. Tale operazione avviene proprio al livello presentazione. \\Una volta finita l'elaborazione del pacchetto dati questo viene passato allo strato inferiore, il livello sessione.\\\\
-\textbf{Il livello sessione} è il quinto livello del modello OSI e fornisce i meccanismi per stabilire, gestire ed infine concludere una comunicazione (o sessione) tra una applicazione locale ed una remota, svolgendo inoltre un'operazione di verifica per assicurarsi della corretta ricezione del pacchetto dati. È solo a questo punto dello stack infatti, dopo che il livello applicativo e presentazione hanno fornito i protocolli necessari ed adattato il pacchetto dati alla comunicazione che avviene la connessione, permettendo agli strati inferiori di attuare l'effettivo invio del pacchetto dati. In base alla durata della sessione è possibile classificare le diverse tipologie di comunicazione. Una trasmissione si definisce \textbf{simplex}, quando la sessione dura al massimo il tempo necessario ad inviare un solo messaggio in una direzione. Un'altra modalità è la \textbf{half-duplex}, e si ha quando la trasmissione è sufficientemente lunga per una comunicazione bidirezionale ma capace di gestire un solo messaggio alla volta. L'ultima e più recente modalità è la \textbf{full-duplex}, la quale permette una comunicazione bidirezionale e simultanea. \\ Essendo comunque le comunicazioni generalmente brevi, il quinto livello fu dotato della capacità di instaurare un \textit{ponte di comunicazione} semi permanente tra due entità per ottimizzare la qualità delle trasmissioni a lungo termine e per meglio gestire le comunicazioni simultanee di applicazioni web.\\ Nel modello TCP/IP tuttavia questo livello non è presente e le modalità di instaurazione di una comunicazione tra due entità possono risultare più complesse. Il livello sessione è stato inglobato in parte nel livello trasporto ed in parte nel livello applicativo, caratterizzando quest'ultimo in fase di apertura di una trasmissione, con una\textit{ struttura stratificata}. Quando infatti si va ad invocare una pagina web tramite un browser, nel TCP/IP i protocolli necessari alla visualizzazione di essa vengono impilati dalla cima dello stack TCP/IP seguendo un ordine crescente di potenza del servizio offerto. Se ad esempio dovessimo caricare una pagina web per guardare un programma in streaming, il livello applicativo impilerebbe tutti i protocolli necessari alla visualizzazione di essa partendo dal più semplice HTTP, fino ad arrivare al RTP(Real-time Trasmission Protocol) (Figura 2.2).
+\textbf{Il livello Presentazione} è il sesto livello del modello ISO/OSI ed è il primo livello ad occuparsi della semantica delle informazioni trasmesse. Ha la responsabilità di assicurare la compatibilità dei dati durante una comunicazione tra entità che utilizzano codifiche diverse. Questo avviene tramite una traduzione del dato in una forma universale e quindi comprensibile da altri Host. Nello specifico: una volta iniziata la comunicazione  in linea di principio, cambia il formato dei dati da quello del dispositivo mittente (\textit{sintassi locale}, a quello del dispositivo destinatario (\textit{sintassi di trasferimento}\\Questo strato offre inoltre, importanti servizi quali la formattazione, la codifica, la criptatura e la compressione di dati. Se, ad esempio, si volesse convertire un file di testo scritto in EBCDIC (Extended Binary Coded Decimal Interchange Code) in un file scritto in  ASCII (American Standard Code for Information Interchange), tale conversione avverrebbe a questo livello. Un altro esempio si ha quando si invia un file di testo dal contenuto sensibile (come una password), ed è dunque necessario che il messaggio venga criptato. Tale operazione avviene proprio al livello Presentazione. \\Una volta finita l'elaborazione del pacchetto dati questo viene passato allo strato inferiore, il livello Sessione.\\\\
+\textbf{Il livello Sessione} è il quinto livello del modello OSI e fornisce i meccanismi per stabilire, gestire ed infine concludere una comunicazione (\textit{o sessione}) tra una applicazione locale ed una remota, svolgendo inoltre un'operazione di verifica per assicurarsi della corretta ricezione del pacchetto dati. È solo a questo punto dello stack infatti, dopo che il livello Applicativo e Presentazione hanno fornito i protocolli necessari ed adattato il pacchetto dati alla comunicazione che avviene la connessione, permettendo agli strati inferiori di attuare l'\textit{effettivo} invio del pacchetto dati. In base alla durata della sessione è possibile classificare le diverse tipologie di comunicazione. Una trasmissione si definisce \textbf{simplex}, quando la sessione dura al massimo il tempo necessario ad inviare un solo messaggio in una direzione. Un'altra modalità è la \textbf{half-duplex}, e si ha quando la trasmissione è sufficientemente lunga per una comunicazione bidirezionale ma capace di gestire un solo messaggio alla volta. L'ultima e più recente modalità è la \textbf{full-duplex}, la quale permette una comunicazione bidirezionale e simultanea. \\ Nel modello TCP/IP, tuttavia, questo livello non è presente e le modalità di instaurazione di una comunicazione tra due entità possono risultare più imprevedibili. Il livello Sessione è stato inglobato in parte nel livello Trasporto ed in parte nel livello Applicativo, caratterizzando quest'ultimo in fase di apertura di una trasmissione, con una\textit{ struttura stratificata}. Quando, infatti, si va a richiedere una pagina Web tramite un browser, nel TCP/IP i protocolli necessari alla visualizzazione di essa vengono impilati dalla cima dello stack TCP/IP (\textbf{add-on}). Questa \textit{decomposizione funzionale} è stata applicata per far fronte alla necessità di integrare nuovi protocolli sugli stessi sistemi, senza che essi debbano essere stravolti, ma semplicemente rendendo i nuovi protocolli compatibili con quelli antecedenti. Se ad esempio dovessimo caricare una pagina web per guardare un programma in streaming, il livello Applicativo comporrebbe verticalmente tutti i protocolli necessari alla visualizzazione di essa partendo dal più semplice ed anziano HTTP, fino ad arrivare al più recente RTP(Real-time Trasmission Protocol) (Figura 2.2).
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[auto,
 rect/.style={
-  rectangle split, rectangle split parts=6,
+  rectangle split, rectangle split parts=7,
   draw, thick,
   text width=4cm,
   text centered,
@@ -182,23 +174,100 @@ rect/.style={
 \node (stack) [rect] {
 \nodepart {one} \Textbox{0.6cm}{RTP}
 \nodepart {two} \Textbox{0.6cm}{...}
-\nodepart{three} \Textbox{0.6cm}{SOAP}
+\nodepart{three} \Textbox{0.6cm}{REST}
 \nodepart{four}\Textbox{0.6cm}{PHP}
-\nodepart{five} \Textbox{0.6cm}{HTML}
-\nodepart{six} \Textbox{0.6cm}{HTTP}
+\nodepart{five} \Textbox{0.6cm}{CSS}
+\nodepart{six} \Textbox{0.6cm}{HTML}
+\nodepart{seven} \Textbox{0.6cm}{HTTP}
 
 };
-\node [below=3cm, align=flush center,text width=8cm] at (stack)
-        {
-            Figura 2.2. \textit{Esempio di stratificazione del livello applicativo in caso di comunicazione Real-Time.}
-        };
 \end{tikzpicture} 
 \end{center}
-A livello sessione vengono gestite anche le funzioni di autenticazione e autorizzazione e viene fornito il servizio di \textit{session restoration} (checkpointing and recovery). Quest'ultimo servizio proverà, in caso di perdita di connessione, a ripristinarla riavviando se necessario la comunicazione.\\ Un esempio dei servizi offerti dal livello sessione si ha durante una video chiamata, durante la quale è essenziale che il video e l'audio siano sincronizzati per evitare \textit{problemi di lip synch} (problemi di sincronizzazione del movimento delle labbra con l'audio). Se il quinto strato è ben progettato, la persona sullo schermo corrisponderà sempre all'audio in uscita, ed in caso di perdita di connessione, il meccanismo di session restoration, proverà a ristabilirla. \\Date le sue caratteristiche, il livello sessione veniva tipicamente implementato negli ambienti applicativi che facevano uso delle RPCs (chiamate a procedura remote), ma soprattutto nei Web browsers. In questi ultimi sfruttava comunemente protocolli come lo ZIP (Zone Information Protocol) ed il SCP(Session Control Protocol).
+\caption {Stratificazione del livello Applicativo in caso di comunicazione Real-Time.}
+\end {figure}
+A livello Sessione dell'ISO/OSI vengono gestite anche le funzioni di autenticazione e autorizzazione e viene fornito il servizio di \textit{session restoration} (checkpointing and recovery). Quest'ultimo servizio proverà, in caso di perdita di connessione, a ripristinarla riavviando se necessario la comunicazione.\\ Un esempio dei servizi offerti dal livello Sessione si ha durante una video chiamata, durante la quale è essenziale che il video e l'audio siano sincronizzati per evitare \textit{problemi di lip synch} (problemi di sincronizzazione del movimento delle labbra con l'audio). In caso di perdita di tale proprietà, essa verrà opportunamente gestita. 
+Nel modello TCP/IP una sessione è gestita in tre fasi. La prima è quella di \textbf{Session Starting} (inizio sessione) nella quale il protocollo TCP adotta una una \textit{Three-Way-Handshake} (Figura 2.3) tra client e server per inizializzare la connessione. Più precisamente, come prima cosa il client invia un messaggio \textit{SYN} (Synchronize) al server per richiedere una sessione, il quale risponderà con un messaggio \textit{SYN ACK} (Synchronize Aknowledgment) per confermare la sincronizzazione e chiedere al client se ha effettivamente richiesto una sessione. Infine il client risponderà con un ultimo messaggio \textit{ACK} per confermare la richiesta di connessione ed avviare così la fase di trasmissione dei dati: \textbf{Data Trasmission}. L'ultima fase è quella di \textbf{Session Ending} (fine sessione), che avviene tramite una \textit{Four-Way-Handshake} (Figura 2.3) che inizia con un messaggio \textit{FIN ACK} (Finished) da server a client per avvisare quest'ultimo che i dati richiesti sono stati completamente trasmessi. A questo punto il client risponderà un un messaggio \textbf{ACK} per confermare la ricezione del messaggio precedente. Una volta completato il download dei dati, il client invierà un messaggio \textbf{FIN ACK} per avvisare il server di aver terminato, il quale, provvederà a chiudere finalmente la connessione con un ultimo messaggio \textit{ACK} di conferma di ricezione.
+
+\begin {figure}
+\resizebox {\columnwidth}{!} {
+\begin{tikzpicture}[font=\sffamily,>=stealth',thick,
+commentl/.style={text width=3cm, align=right},
+commentr/.style={commentl, align=left},]
+\node[] (init) {\LARGE Server};
+\node[right=1cm of init] (recv) {\LARGE Client};
+
+
+\draw[->] ([yshift=-1.7cm]init.south) coordinate (fin1o) -- ([yshift=-.7cm]fin1o-|recv) coordinate (fin1e) node[pos=.3, above, sloped] {FIN ACK};
+
+\draw[->] ([yshift=-.3cm]fin1e) coordinate (ack1o) -- ([yshift=-.7cm]ack1o-|init) coordinate (ack1e) node[pos=.3, above, sloped] {ACK};
+
+\draw[->] (ack1e-|recv) coordinate (fin2o) -- ([yshift=-.7cm]fin2o-|init) coordinate (fin2e) node[pos=.3, above, sloped] {FIN ACK};
+
+\draw[->] ([yshift=-.3cm]fin2e) coordinate (ack2o) -- ([yshift=-.7cm]ack2o-|recv) coordinate (ack2e) node[pos=.3, above, sloped] {ACK};
+
+\draw[thick, shorten >=-1cm] (init) -- (init|-ack2e);
+\draw[thick, shorten >=-1cm] (recv) -- (recv|-ack2e);
+
+\draw[dotted] (recv.285)--([yshift=2mm]recv.285|-fin1e) coordinate[pos=.5] (aux1);
+
+\draw[dotted] (init.255)--([yshift=2mm]init.255|-fin1o);
+
+\draw[dotted] ([yshift=1mm]init.255|-fin2e) --([yshift=-5mm]init.255|-ack2e) coordinate (aux2);
+
+\node[commentr, right =2mm of ack2e] {\textbf{CLOSED}};
+\node[commentr, right =2mm of fin2o] {\textbf{LAST ACK}};
+\node[below left = 0mm and 2mm of init.south, commentl]{\textbf{ESTABLISHED}\\[-1.5mm]{\itshape connection}};
+\node[left = 2mm of fin1o.west, commentl]{{\itshape active close}\\[-1mm]\textbf{FIN\_WAIT\_1}};
+\node[left = 2mm of ack1e.west, commentl]{\textbf{FIN\_WAIT\_2}};
+\node[below left = -1mm and 2mm of fin2e.west, commentl]{\textbf{TIME\_WAIT}};
+\node[below left = -1mm and 2mm of aux2-|init, commentl]{\textbf{CLOSED}};
+
+\node[right = 2mm of recv|-aux1, commentr]{\textbf{ESTABLISHED}\\[-1.5mm]{\itshape connection}};
+\node[right = 2mm of fin1e.west, commentr]{\textbf{CLOSE\_WAIT}\\[-1mm]{\itshape passive close}};
+\end{tikzpicture}
+
+\begin{tikzpicture}[font=\sffamily,>=stealth',thick,
+commentl/.style={text width=3cm, align=right},
+commentr/.style={commentl, align=left},]
+\node[] (init) {\LARGE Server};
+\node[right=1cm of init] (recv) {\LARGE Client};
+
+
+\draw[->] ([yshift=1cm]fin1o-|recv) -- ([yshift=-2cm]init.south) coordinate (fin1o) coordinate (fin1e) node[pos=.3, above, sloped] {SYN};
+
+
+\draw[->] ([yshift=1.5cm]fin2e) coordinate (ack2o) -- ([yshift=-.4cm]ack2o-|recv) coordinate (ack2e) node[pos=.3, above, sloped] {SYN ACK};
+
+\draw[->] ([yshift=-1.5cm]fin1o-|recv) -- ([yshift=-4.5cm]init.south) coordinate (ack2e) coordinate (fin1e) node[pos=.3, above, sloped] {ACK};
+
+
+\draw[thick, shorten >=-1cm] (init) -- (init|-ack2e);
+\draw[thick, shorten >=-1cm] (recv) -- (recv|-ack2e);
+
+\draw[dotted] (recv.285)--([yshift=2mm]recv.285|-fin1e) coordinate[pos=.5] (aux1);
+
+\draw[dotted] (init.255)--([yshift=2mm]init.255|-fin1o);
+
+\draw[dotted] ([yshift=1mm]init.255|-fin2e) --([yshift=-5mm]init.255|-ack2e) coordinate (aux2);
+
+
+\node[right = 19mm of fin1o.west, commentl]{\textbf{SYN\_SENT}};
+
+\node[below left = -10mm and 2mm of aux2-|init, commentl]{\textbf{ESTABLISHED}\\[-1.5mm]{\itshape connection}};
+
+
+\node[below right = 0mm and 24mm of aux2-|init, commentl]{\textbf{ESTABLISHED}\\[-1.5mm]{\itshape connection}};
+\node[left = -2mm of ack2o, commentr]{\textbf{SYN\_RECIVED}};
+\node[below left = 0mm and 2mm of init.south, commentl]{\textbf{LISTEN}};
+\end{tikzpicture}
+}
+\caption{Three Way Handshake (destra) e Four Way Handshake (sinistra)}
+\end{figure}
+
 
 \section{Evoluzione delle applicazioni Internet e Web}
-Dalla nascita di \textit{ARPANET} negli anni '60 si sviluppò nel mondo un nuovo modo di comunicare: la rete internet. Sebbene inizialmente i fini fossero puramente militari, con la fine della Guerra Fredda l'esercito si disinteressò dello strumento, lasciandolo nel pieno controllo delle università dove divenne utile per scambiare conoscenze scientifiche e più in generale per comunicare. Negli stessi anni \textit{Tim Berners-Lee} creò un'architettura che semplificò drasticamente l'utilizzo della rete ormai rinominata Internet: il \textbf{World Wide Web.}\\Nel 1991 lo stesso Tim Berners-Lee, creò il primo sito web, avviando una rivoluzione che oggi chiamiamo \textbf{Web 1.0}.\\\\
-Il Web 1.0 era l'internet dei contenuti, caratterizzato da siti web semplici e statici dai quali era possibile solo accedere a risorse senza poterle modificare o aggiungere. Le pagine web erano scritte da una ristretta cerchia di persone ed erano gremite di collegamenti ipertestuali (link) ad altre pagine, in modo da dare all'utente più libertà di movimento possibile all'interno della rete. È col Web 1.0 che nacque il concetto di \textit{applicazione internet} (web application), cioè un programma di tipo client-server che viene eseguito dal client tramite un \textit{web browser}. Nel Web 1.0 il client, rappresentato dal browser, per mezzo di uno o più web server accedeva a pagine web statiche le quali comunicando con dei semplici server, restituivano il contenuto desiderato.
+Dalla nascita di \textit{ARPANET} (The Advanced Research Projects Agency Network) negli anni '60 - '70 si sviluppò nel mondo un nuovo modo di comunicare: la rete Internet. Nel primo periodo della sua vita, la rete, denominata DARPA (Defense Advanced Research Projects Agency), era in una \textit{fase di incubazione}, durante la quale veniva utilizzata solo dall'esercito con lo scopo di favorire l'efficienza nello sviluppo di nuove tecnologie militari. A seguito di tale periodo e con il crescente interesse da parte della comunità scientifica, l'utilizzo della Rete venne esteso alle principali università americane, le quali, tramite ad esempio l'innovativo servizio di\textit{ posta elettronica}, avevano la possibilità di scambiare numerosi documenti in pochissimo tempo ed in modo sicuro. La Rete si trovava allora nella \textit{fase accademica}. Negli stessi anni \textit{Tim Berners-Lee} creò un'architettura che semplificò drasticamente l'utilizzo della Rete, ormai rinominata Internet, e ne rendeva possibile lo sfruttamento a fini commerciali, avviando difatti la sua \textit{fase commerciale}: il \textbf{World Wide Web.}\\Nel 1991 lo stesso Tim Berners-Lee, creò il primo sito Web, avviando implicitamente una rivoluzione che oggi chiamiamo \textbf{Web 1.0}.\\Il Web 1.0 si può classificare come l'Internet dei contenuti, caratterizzato da siti Web semplici e statici dai quali era possibile solo accedere a risorse senza poterle modificare o aggiungere. Le pagine Web erano scritte da una ristretta cerchia di persone e presentavano molti collegamenti ipertestuali statici (hyper link) ad altre pagine, in modo da dare all'utente più libertà di movimento possibile all'interno della Rete. È col Web 1.0 che nacque il concetto di \textit{Web application}, cioè una variante del paradigma di tipo Client-Server che viene eseguita dal Client tramite un \textit{Web browser}. Nel Web 1.0 il Client, rappresentato dal browser, accedeva a pagine Web statiche rese accessibili da semplici Web Server (Figura 2.4).
+\begin{figure}[h]
 \begin{center}
 \begin{tikzpicture}[auto,
   node distance = 0.5cm and 1cm, text centered,
@@ -223,18 +292,15 @@ net/.style = {cylinder, draw,
 \draw [arrow] (webP.west) --+  (-0.5,0) |- (webS);
 \draw [arrow] (main.south) --+  (0,-0.5) -| (network) node[midway,sloped,left,rotate=270] {Risposta};
 \end{tikzpicture}
-\begin{tikzpicture}
-\node [align=center,text width=13cm]
-        {
-           \\Figura 2.3. \textit{Modello semplificato della struttura del Web 1.0}
-        };
-\end{tikzpicture}
 \end{center}
-I browser utilizzati per la navigazione erano molto semplici poiché l'unico linguaggio che dovevano interpretare era l'HTML. Nel Web 1.0 non era inoltre prevista alcun tipo di separazione tra i dati e la loro rappresentazione, era tutto semplicemente ammassato nelle pagine web, rendendo queste ultime molto fragili. Se ad esempio doveva essere cambiata anche solo una parola, si doveva andare a modificare l'intera pagina.  \\Le comunicazioni erano gestite solo dal protocollo HTTP, tutt'oggi ancora fondamentale. Questo ha la caratteristica di essere un protocollo\textit{ senza stato} (state-less protocol), che cioè tratta ogni richiesta da client a server in modo indipendente dalle altre causando di conseguenza la perdita di qualsiasi informazione scambiata tra browser e server al termine della trasmissione. Se ad esempio avessimo messo qualcosa nel carrello di un qualche sito di acquisti ed avessimo poi navigato su altri siti o chiuso e riaperto il collegamento, una volta tornati al nostro sito di acquisti avremmo trovato il carrello vuoto. Questo problema venne risolto sempre in quel periodo con l'invenzione dei \textbf{cookies}. Per mezzo di essi, ogni volta che l'utente effettuava una richiesta il browser, se necessario, inviava al server i cookies per notificarlo di connessioni precedenti.\\\\
-Col progredire degli anni e l'aumentare del numero degli utenti, si rendeva sempre più necessaria la possibilità di interagire con i contenuti. Il mutamento iniziò grazie all'ausilio dei nuovi linguaggi di programmazione come \textit{PHP}, per mezzo dei quali iniziarono a crearsi i primi \textit{blog}, cioè siti web sui quali era possibile inserire dei commenti. Questo primo cambiamento comportò l'avvento delle prime \textit{community} e venne identificato come \textbf{Web 1.5}. \\Di lì a pochi anni la rete si espanse in modo esponenziale con l'introduzione dei \textit{Wiki} e dei \textit{Social Network}, ponendo l'interattività con l'utente in primo piano e facendo nascere così il\textbf{ Web 2.0}.\\\\
-La rete da statica divenne quindi dinamica, apportando modifiche architetturali principalmente lato server, rendendolo decisamente più complesso. Non si avevano più semplici pagine web statiche che reperivano informazioni da server, ma pagine web dotate di un elevato numero di servizi e script costantemente in comunicazione con qualche \textit{database} (Fiugura 2.4). \\ Due dei servizi più innovativi furono gli \textit{RSS} ed i \textit{Podcast}. L'RSS (Really Simple Syndacation) è uno dei più popolari formati di distribuzione dei contenuti web basato su XML (eXtensible Markup Language) per mezzo del quale divenne possibile, tramite il meccanismo di feed-RSS, monitorare gli aggiornamenti di un sito senza visitarlo. La funzionalità dei Podcast è molto simile, ma anziché monitorare il cambiamento di testo ed immagini, tramite tale meccanismo si rese possibile monitorare l'inserimento di file audio e video.\\
+\caption{Modello semplificato della struttura del Web 1.0}
+\end{figure}
+I browser utilizzati per la navigazione erano molto semplici poiché l'unico linguaggio che dovevano \textit{interpretare} era l'HTML e non era richiesta nessun tipo di compilazione. Nel Web 1.0 non era inoltre prevista in alcun modo, la separazione tra i dati e la loro rappresentazione a livello di codice HTML, rendendo problematica la gestione, la manutenzione e l'aggiornamento. Se ad esempio doveva essere cambiata anche solo una parola, si doveva andare a modificare l'intera pagina.  \\Le sessioni erano gestite soltanto dal protocollo HTTP, tutt'oggi ancora utilizzato. Questo ha la caratteristica di essere un protocollo\textit{ privo di stato} (\textit{state-less}), che cioè tratta ogni richiesta da Client a Server in modo indipendente dalle altre, causando di conseguenza la perdita di qualsiasi informazione scambiata al termine della transazione. Ciò rendeva impossibile ad esempio, qualsiasi applicazione commerciale. Tale problema venne risolto inizialmente con l'invenzione dei \textbf{cookies}. Questi sono piccole stringhe di testo che vengono inviate da un Web Server ad un Web Client (solitamente un browser) alla loro prima interazione, per poi essere rimandate indietro dal Client al Server ogni volta che il Client accederà alla stessa porzione dello stesso dominio Web. Pur sviluppandosi tecnologie che avrebbero potuto rivoluzionare completamente i Web browser, negli anni successivi, questi sono piuttosto stati integrati con varie funzionalità (\textbf{add-on)} scaturite da nuove tecnologie o linguaggi di programmazione, che rispettassero il principio di \textit{Backward compatibility}. Tale principio prevede la possibilità di far cooperare tecnologie vecchie e nuove, in modo che l'avvento di una nuova scoperta non debba necessariamente portare alla ristesura di intere strutture.\\\\
+All'aumentare del numero dei servizi, degli utenti e dei loro requisiti, si rendeva sempre più necessaria la capacità di interagire con i contenuti stessi. Il mutamento fu veicolato da dei nuovi linguaggi di programmazione come \textit{PHP}, per mezzo dei quali iniziarono a crearsi i primi \textit{blog}, cioè siti Web sui quali era possibile inserire dei commenti. Questo significativo cambiamento comportò l'avvento delle prime \textit{community} e venne identificato come \textbf{Web 1.5}. \\Di lì a pochi anni la Rete si espanse in modo esponenziale con l'introduzione dei \textit{Wiki} e dei \textit{Social Network}, ponendo l'interattività con l'utente in primo piano e facendo nascere così il\textbf{ Web 2.0}.\\\\
+A livello applicativo la Rete da statica divenne quindi dinamica, apportando modifiche architetturali principalmente lato Server, rendendolo cioè decisamente più complesso. Non si avevano più semplici pagine Web statiche, ma pagine Web più complesse e dinamiche, dotate di un elevato numero di servizi e script costantemente in comunicazione, per mezzo di specifici connettori, con qualche \textit{database} (Figura 2.5). \\ Due dei servizi più innovativi furono gli \textit{RSS} ed i \textit{Podcast}. L'RSS (Really Simple Syndacation) è uno dei più popolari formati di distribuzione dei contenuti web basato su XML (eXtensible Markup Language) per mezzo del quale divenne possibile, tramite il meccanismo di feed-RSS, monitorare gli aggiornamenti di un sito senza visitarlo. Quest'ultima tecnologia rappresentò un vero punto di svolta nello sviluppo della Rete, in particolare per quanto riguarda la crescita dei \textit{social network}. Per mezzo di essa, i siti Web guadagnarono la capacità di ricevere e pubblicare continui aggiornamenti, come ad esempio la visualizzazione dei commenti sotto un post di \textit{Facebook}. La funzionalità dei Podcast è molto simile ma, anziché monitorare ed aggiornare continuamente file di tipo testo o immagini, tramite tale meccanismo  fu possibile espandere il servizio ai file audio e video.\\\\
+\begin{figure}[h]
 \begin{center}
-\resizebox{13cm}{!}{
+\resizebox{\columnwidth}{!}{
 \begin{tikzpicture}[auto,
   node distance = 0.6cm and 1cm, text centered,
  entity/.style = {rectangle, draw,
@@ -292,29 +358,52 @@ data/.style = {cylinder, draw,
 
 \end{tikzpicture}
 }
-\begin{tikzpicture}
-\node [align=center,text width=13cm]
-        {
-           \\Figura 2.4. \textit{Modello semplificato della struttura del Web 2.0 e 3.0\\ Si hanno molteplici script/servizi che attraverso molteplici connettori prelevano informazioni a specifici Web-database}
-        };
-\end{tikzpicture}
 \end{center}
-Conseguentemente al mutamento del lato server, i browser divennero  più complessi eliminando le incompatibilità che vi erano in passato con le web app ed offrendo una vasta gamma di servizi oggigiorno fondamentali. Un esempio si ha dall'arrivo di \textit{JavaScript}, per mezzo del quale si rese possibile eseguire codici direttamente sul browser. \\ Col Web 2.0 si registrò un fortissimo aumento degli utenti e dei contenuti pubblicati. Basti infatti pensare che ogni post che venisse pubblicato da qualcuno su un qualsiasi social media diventava (e diventa ancora) effettivamente un contenuto reperibile da chiunque su internet.\\\\
-Passando dal Web 1.0 al 2.0 e continuando esso a crescere in modo esponenziale si è venuto a creare un problema: se prima su internet scarseggiavano i contenuti e si rischiava di non riuscire a trovare una corrispondenza alle nostre ricerche, questi divennero poi troppi e districarsi tra essi per presentare una corrispondenza significativa divenne sempre più difficile (Figura 2.5).\\\\
-Il \textbf{Web 3.0}, il \textit{Web of Things}, è quello su cui oggigiorno navighiamo ed è basato sul paradigma dell'\textit{intelligenza semantica}, ancora oggi in piena evoluzione. In questa fase, il World Wide Web è rappresentato da un ambiente in cui ogni file pubblicato (pagine HTML, immagini, video, testi ecc...) entra concettualmente a far parte di un enorme database , il\textit{ Web Database} nel quale ogni dato è interpretabile tramite metadati associati ad esso che ne specificano il contesto semantico in un formato adatto all'interrogazione, all'interpretazione e, più in generale, all'elaborazione automatica intelligente. L'intelligenza è infatti la caratteristica fondamentale di questa fase. Tramite algoritmi sempre più sofisticati che sfruttano l'intelligenza artificiale avremo in futuro programmi più potenti ed efficienti capaci di interagire e collaborare tra loro e con gli utenti, sfruttando la potenza della semantica. Si pensi ad esempio se un'applicazione calendario ed una di posta elettronica fossero in grado di comunicare tra loro. Ogni volta che venisse fissato un appuntamento, il calendario potrebbe aggiornarsi da solo, tramite le informazioni comunicategli dall'applicazione di posta elettronica.\\ Per far sì che ciò sia possibile, il Web 3.0 si basa sul concetto che tutte le fonti siano codificate secondo gli stessi criteri e che quindi tutti i documenti condividano la lingua con cui sono scritti. \\\\
-La rete è in continuo mutamento e sul come si svilupperà il Web 3.0 si possono fare solo congetture.\\Tim Berners-Lee vede il Web 3.0 come una rete raggiungibile da tutti, senza barriere, che tramite la semantica possa generare applicazioni web più potenti di qualsiasi altra applicazione mai creata. Tale potenza, oltre che dal punto di vista della semantica è intesa anche dal punto di vista grafico, dove la \textit{grafica vettoriale scalabile} (SVG), secondo Lee, prenderà il sopravvento. Per mezzo di essa è possibile esprimere figure interattive che possono essere ridefinite in qualsiasi momento ed in qualsiasi punto, senza perdere un grammo di qualità. Ci sono tuttavia persone che teorizzano si tenderà a portare la rete in una forma tridimensionale (tipo second life) fatta non più di pagine ma di spazi in cui poterci muovere per trovare ciò che cerchiamo. Altre teorie vedono il futuro del web come un'entità onnipresente nella vita quotidiana, capace di alterare letteralmente le percezioni umane. Da quest'ultimo punto di vista, i Google Glass potrebbero essere visti come un primo piccolo tentativo di sviluppo, che non ha però trovato spazio nella società odierna. \\
+\caption{Modello semplificato della struttura del Web 2.0 e 3.0.}
+\end{figure}\\
+Conseguentemente all'evoluzione del lato Server, i browser divennero  più complessi eliminando le incompatibilità che vi erano in passato con le Web Application ed offrendo una vasta gamma di servizi oggigiorno fondamentali. Un esempio si ha dall'arrivo di \textit{JavaScript}, per mezzo del quale si rese possibile eseguire codici direttamente sul browser (\textit{scripting}). Un altro importante cambiamento fu quello portato da \textbf{HTTP/2}. Il protocollo HTTP non era infatti ancora mai stato cambiato dalla sua prima stesura (HTTP 1.1) del 1997, e col Web che si vedeva completamente rivoluzionato divenne una priorità avere un protocollo adatto alle nuove esigenze della Rete. HTTP/2 espanse il precedente protocollo senza cambiare le sue fondamenta, aggiungendo nuove funzioni e rendendo il processo di incapsulamento e trasferimento dei messaggi HTTP tra client e server, molto più veloce. In generale HTTP/2 non modificò la semantica di HTTP/1, ma modificò il modo in cui i dati venivano frammentati (\textit{framed}) in modo da diminuire la latenza. Questo avvenne con l'aggiunta del nuovo livello di \textit{binary framing}, posto tra l'interfaccia socket e l'API HTTP che, oltre a ridefinire il protocollo stesso da \textit{testuale} (textual) a \textit{binario} (binary), suddivise tutte le comunicazioni HTTP/2 in messaggi e frame più piccoli, ognuno dei quali codificato in formato binario.\\Con HTTP/1 se un client voleva eseguire più richieste parallelamente per incrementare la velocità, era obbligato ad utilizzare più \textit{connessioni TCP} a causa della struttura stessa del modello di consegna di HTTP/1, il quale assicurava la consegna di una sola risposta alla volta per ogni connessione (risposta alla coda). Come conseguenza diretta si aveva un blocco della linea diretta ed una inefficienza nell'uso della connessione TCP sottostante. Con l'arrivo di HTTP/2 ed il suo nuovo livello di framing queste limitazioni sparirono e per mezzo della nuova tecnologia di \textit{multiplexing} divenne possibile per client e server, dividere un messaggio HTTP in frame indipendenti, di intervallarli e di ricomporli all'altro capo.\\\\ Col Web 2.0 si registrò un fortissimo aumento degli utenti e dei contenuti pubblicati. Basti infatti pensare che ogni post che venisse pubblicato da qualcuno su un qualsiasi social network diventava (e diventa ancora) effettivamente un contenuto reperibile da chiunque su Internet.\\
+Passando dal Web 1.0 al 2.0 ed in seguito ad una crescita esponenziale di utenti e di contenuti (Figura 2.7), si è venuto a creare un problema: se prima su Internet scarseggiavano i contenuti, questi divennero poi troppi e districarsi tra essi per presentare una corrispondenza significativa divenne sempre più difficile. Nella prima parte di vita del Web, i motori di ricerca erano molto semplici, poiché semplici erano le richieste che li potevano essere sottoposte. Con la crescita della Rete e l'ampliamento della tipologia e della mole dei contenuti reperibili su di essa, le esigenze degli utenti cambiarono, rendendo necessario un adeguamento dei motori di ricerca, mirato a restituire all'utente una corrispondenza sempre migliore. Fu così che gli algoritmi di ricerca sul Web fecero un primo passo verso l'\textit{intelligenza artificiale.} \\\\
+Il \textbf{Web 3.0}, il \textit{Web of Things}, è quello su cui in futuro navigheremo ed è basato sul paradigma dell'\textit{intelligenza semantica} ad oggi già in evoluzione. Se vi è mai capitato di utilizzare un assistente virtuale (ad esempio Alexa), o un qualsiasi oggetto di uso comune dotato di una connessione ad Internet, siete già entrati in contatto col Web of Things (WoT). Il concetto generale è infatti quello di interconnettere utenti umani ed oggetti (\textbf{things}) attraverso la Rete. In questa fase, il Web è rappresentato da un ambiente in cui ogni file pubblicato (pagine HTML, immagini, video, testi ecc...) entra \textit{concettualmente} a far parte di un enorme database, il\textit{ Web Database} nel quale ogni dato è interpretabile tramite \textit{metadati} associati ad esso che ne specificano il contesto semantico in un formato adatto all'interrogazione, all'interpretazione e, più in generale, all'elaborazione automatica intelligente. L'\textit{intelligenza} è infatti la caratteristica fondamentale di questa fase. Tramite algoritmi sempre più sofisticati che sfruttano l'intelligenza artificiale saremo in futuro capaci di creare programmi più potenti ed efficienti capaci di interagire e collaborare tra loro e con gli utenti e di avere una vera e propria \textit{coscienza del contesto}, sfruttando la potenza della semantica. Si pensi ad esempio se un'applicazione calendario ed una di posta elettronica fossero in grado di comunicare tra loro in completa autonomia. Ogni volta che venisse fissato un appuntamento tramite e-mail, il calendario potrebbe aggiornarsi da solo, tramite le informazioni comunicategli dall'applicazione di posta elettronica.\\ Per far sì che ciò sia possibile, il Web 3.0 si basa sul concetto che tutte le fonti siano codificate secondo gli stessi criteri e che quindi tutti i documenti condividano la lingua con cui sono scritti. \\\\
+\begin{figure}[h]
+\begin{center}
+\resizebox{5cm}{!}{
+\begin{tikzpicture}[auto,
+  node distance = 0.6cm and 1cm, text centered,
+ entity/.style = {rectangle,
+                   minimum width=0cm, minimum height=1cm, align=center},
+   arrow/.style = {thick,-stealth}
+                    ]
+\node (ai)  [entity] at(2,2){AI};
+\node (human)  [entity] at(0.5,0) {Human};
+\node (things) [entity] at(3.5,0) {Things};
+
+
+% connections
+
+\draw [arrow] (ai.south) -- (human);
+\draw [arrow] (ai.south) -- (things);
+\draw [arrow] (things.west) -- (human.east);
+
+\draw [arrow] (human) -- (ai.south);
+\draw [arrow] (things) -- (ai.south);
+\draw [arrow] (human.east) -- (things.west);
+
+\end{tikzpicture}
+}
+\end{center}
+\caption{Interfacce ed interazioni tra esse nel Web 3.0}
+\end{figure}\\
+La Rete è in continuo mutamento e sul come si svilupperà il Web 3.0 si possono fare solo congetture.\\Tim Berners-Lee vede il Web 3.0 come una rete raggiungibile da tutti, senza barriere, che tramite la semantica possa generare applicazioni Web nel complesso più efficaci di qualsiasi altra singola applicazione mai creata. Questa potenzialità, oltre che dal punto di vista della semantica è intesa anche dal punto di vista grafico, dove la \textit{grafica vettoriale scalabile} (SVG), secondo Lee, prenderà il sopravvento. Per mezzo di essa è possibile esprimere figure interattive che possono essere ridefinite in qualsiasi momento ed in qualsiasi punto, senza perdere un grammo di qualità.\\Sicuramente col progredire del WoT, l'intera struttura del Web tenderà a mutare, portandoci in un futuro dove la Rete sarà costituita da utenti, \textit{things}, ed \textit{intelligenze artificiali} (IA) sempre più simili ad utenti reali (Figura 2.6). In una tale visione del futuro le interazioni tra tra questi tre soggetti saranno del tutto inedite. Si pensi ad esempio ad una IA che riceve feedback ed invia direttive ad un oggetto connesso alla rete in modo del tutto autonomo ed intelligente, o che crea contenuti su Internet, ad esempio su un social network, in modo indistinguibile da un essere umano. \\\\
+È interessante pensare anche a come si evolveranno i social network a fronte di un tale cambiamento. Con l'avvento di ulteriori soggetti su Internet oltre alle persone fisiche, non sarebbe assurdo pensare a social network composti prevalentemente da IA e things.
+Ci sono tuttavia persone che teorizzano si tenderà a portare la Rete in una forma tridimensionale (tipo second life) fatta non più di pagine ma di spazi in cui poterci muovere tridimensionalmente per trovare ciò che cerchiamo. 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=14cm]{Immagini/webcontest.png}
-
-\begin{tikzpicture}
-\node [below=3cm, align=center,text width=13cm] at (stack)
-        {
-            Figura 2.5. \textit{Crescita della rete Internet}
-        };
-\end{tikzpicture} 
 \end{center}
+\caption{Crescita della rete Internet}
 \end{figure}
+
+
 
 \section{Servizio DNS}
 
