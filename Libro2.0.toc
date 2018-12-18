@@ -21,21 +21,21 @@
 \contentsline {section}{\numberline {2.1}Funzionalit\`a}{10}
 \contentsline {section}{\numberline {2.2}Livelli Sessione e Presentazione}{12}
 \contentsline {section}{\numberline {2.3}Evoluzione delle applicazioni Internet e Web}{14}
-\contentsline {section}{\numberline {2.4}Servizio DNS}{19}
-\contentsline {section}{\numberline {2.5}Servizio Telnet}{19}
-\contentsline {section}{\numberline {2.6}Servizio SMTP e POP/IMPAP}{19}
-\contentsline {section}{\numberline {2.7}Servizio HTTP}{19}
-\contentsline {subsection}{\numberline {2.7.1}Standard HTTP/1.0}{19}
-\contentsline {subsection}{\numberline {2.7.2}Standard HTTP/1.1}{19}
-\contentsline {subsection}{\numberline {2.7.3}Cache e Web Proxy}{19}
-\contentsline {subsection}{\numberline {2.7.4}Standard HTTP/2.0}{19}
-\contentsline {section}{\numberline {2.8}Paradigma Client-Server}{19}
-\contentsline {subsection}{\numberline {2.8.1}Cloud, Fog e Edge Computing}{19}
-\contentsline {subsection}{\numberline {2.8.2}Content Delivery Networks}{19}
-\contentsline {section}{\numberline {2.9}Paradigma Peer-to-Peer}{19}
-\contentsline {subsection}{\numberline {2.9.1}Protocollo BitTorrent}{19}
-\contentsline {section}{\numberline {2.10}Social Networks}{19}
-\contentsline {section}{\numberline {2.11}Blockchain}{19}
+\contentsline {section}{\numberline {2.4}Servizio DNS}{20}
+\contentsline {section}{\numberline {2.5}Servizio Telnet}{20}
+\contentsline {section}{\numberline {2.6}Servizio SMTP e POP/IMPAP}{20}
+\contentsline {section}{\numberline {2.7}Servizio HTTP}{20}
+\contentsline {subsection}{\numberline {2.7.1}Standard HTTP/1.0}{20}
+\contentsline {subsection}{\numberline {2.7.2}Standard HTTP/1.1}{20}
+\contentsline {subsection}{\numberline {2.7.3}Cache e Web Proxy}{20}
+\contentsline {subsection}{\numberline {2.7.4}Standard HTTP/2.0}{20}
+\contentsline {section}{\numberline {2.8}Paradigma Client-Server}{20}
+\contentsline {subsection}{\numberline {2.8.1}Cloud, Fog e Edge Computing}{20}
+\contentsline {subsection}{\numberline {2.8.2}Content Delivery Networks}{20}
+\contentsline {section}{\numberline {2.9}Paradigma Peer-to-Peer}{20}
+\contentsline {subsection}{\numberline {2.9.1}Protocollo BitTorrent}{20}
+\contentsline {section}{\numberline {2.10}Social Networks}{20}
+\contentsline {section}{\numberline {2.11}Blockchain}{20}
 \contentsline {chapter}{\numberline {3}Tecnologie Web}{21}
 \contentsline {section}{\numberline {3.1}Linguaggio HTML}{21}
 \contentsline {subsection}{\numberline {3.1.1}Evoluzione storica}{21}
